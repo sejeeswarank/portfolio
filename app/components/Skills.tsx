@@ -8,9 +8,9 @@ export default function Skills() {
   const [active, setActive] = useState('languages')
   const current = skillCategories.find(c => c.id === active)!
   return (
-    <section id="skills" className="py-36 px-10 bg-[#FAF8F5]">
+    <section id="skills" className="py-16 px-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto">
-        <AnimatedSection className="mb-20">
+        <AnimatedSection className="mb-10">
           <div className="text-xs font-semibold tracking-widest uppercase text-[#1B4FD8] mb-3">Expertise</div>
           <h2 className="font-serif text-4xl md:text-5xl tracking-tight mb-4">Tech Stack</h2>
           <p className="text-base text-[#888] max-w-xl leading-relaxed">Technologies I use to build end to end systems from smart contracts to cloud deployments.</p>

@@ -9,7 +9,7 @@ export default function Contact() {
     { iconName: 'github', label: 'GITHUB', value: 'github.com/sejeeswarank', href: 'https://github.com/sejeeswarank' },
   ]
   return (
-    <section id="contact" className="py-36 px-10 bg-[#1A1A1A] text-white">
+    <section id="contact" className="py-16 px-10 bg-[#1A1A1A] text-white">
       <div className="max-w-7xl mx-auto text-center">
         <AnimatedSection>
           <div className="text-xs font-semibold tracking-widest uppercase text-white/40 mb-3">Get In Touch</div>
@@ -18,7 +18,7 @@ export default function Contact() {
             I&apos;m a fresher actively looking for SDE opportunities. Feel free to reach out, I&apos;d love to chat!
           </p>
         </AnimatedSection>
-        <AnimatedSection delay={120} className="flex justify-center gap-6 flex-wrap mb-24 stagger-children">
+        <AnimatedSection delay={120} className="flex justify-center gap-6 flex-wrap mb-12 stagger-children">
           {links.map(l => (
             <a key={l.label} href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer"
               className="bg-white/5 border border-white/10 rounded-2xl px-7 py-5 flex items-center gap-4 text-base font-medium hover:bg-white/10 hover:border-white/25 hover:-translate-y-1 transition-all duration-200">
@@ -33,7 +33,7 @@ export default function Contact() {
           ))}
         </AnimatedSection>
         <AnimatedSection delay={240}>
-          <p className="font-serif text-3xl md:text-4xl italic text-white/50 tracking-tight max-w-3xl mx-auto leading-relaxed">
+          <p className="font-serif text-3xl md:text-4xl italic text-white/30 tracking-tight max-w-3xl mx-auto leading-relaxed">
             &ldquo;I don&apos;t just learn technologies,<br />I build systems with them.&rdquo;
           </p>
         </AnimatedSection>

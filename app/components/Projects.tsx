@@ -19,10 +19,10 @@ export default function Projects() {
   const rest = projects.filter(p => !p.featured)
 
   return (
-    <section id="projects" className="py-36 px-10 bg-white">
+    <section id="projects" className="py-16 px-10 bg-white">
       <div className="max-w-7xl mx-auto">
 
-        <AnimatedSection className="mb-20">
+        <AnimatedSection className="mb-10">
           <div className="text-xs font-semibold tracking-widest uppercase text-[#1B4FD8] mb-3">Work</div>
           <h2 className="font-serif text-4xl md:text-5xl tracking-tight mb-4">Featured Projects</h2>
           <p className="text-base text-[#888] max-w-xl leading-relaxed">Real world systems built with Blockchain, AI, and Cloud where each solving a genuine problem.</p>
