@@ -23,9 +23,9 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto">
 
         <AnimatedSection className="mb-20">
-          <div className="text-sm font-semibold tracking-widest uppercase text-[#1B4FD8] mb-4">Work</div>
-          <h2 className="font-serif text-6xl md:text-7xl tracking-tight mb-5">Featured Projects</h2>
-          <p className="text-xl text-[#888] max-w-xl leading-relaxed">Real world systems built with Blockchain, AI, and Cloud where each solving a genuine problem.</p>
+          <div className="text-xs font-semibold tracking-widest uppercase text-[#1B4FD8] mb-3">Work</div>
+          <h2 className="font-serif text-4xl md:text-5xl tracking-tight mb-4">Featured Projects</h2>
+          <p className="text-base text-[#888] max-w-xl leading-relaxed">Real world systems built with Blockchain, AI, and Cloud where each solving a genuine problem.</p>
         </AnimatedSection>
 
         {/* Featured */}
@@ -34,7 +34,7 @@ export default function Projects() {
             <div className="flex items-center gap-5 mb-5">
               <ProjectLogo logo={featured.logo} name={featured.name} size={72} logoBg={featured.logoBg} />
               <div>
-                <h3 className="font-serif text-5xl tracking-tight">{featured.name}</h3>
+                <h3 className="font-serif text-3xl tracking-tight">{featured.name}</h3>
                 {featured.status === 'ongoing' && (
                   <span className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest uppercase text-amber-600 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full mt-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
@@ -43,18 +43,18 @@ export default function Projects() {
                 )}
               </div>
             </div>
-            <p className="text-lg text-[#4A4A4A] leading-relaxed mb-8">{featured.desc}</p>
+            <p className="text-base text-[#4A4A4A] leading-relaxed mb-7">{featured.desc}</p>
             <div className="flex flex-wrap gap-3 mb-9">
               {featured.tags.map(t => (
                 <span key={t} className="bg-[#EEF2FF] text-[#1B4FD8] text-sm font-medium px-4 py-2 rounded-full">{t}</span>
               ))}
             </div>
             <div className="flex gap-4">
-              <a href={featured.liveUrl!} target="_blank" className="bg-[#1B4FD8] text-white text-base font-semibold px-8 py-4 rounded-xl hover:bg-[#1440B8] transition-colors flex items-center gap-2">
-                <Icon name="externalLink" size={16} /> Live Demo
+              <a href={featured.liveUrl!} target="_blank" className="bg-[#1B4FD8] text-white text-sm font-semibold px-6 py-3 rounded-xl hover:bg-[#1440B8] transition-colors flex items-center gap-2">
+                <Icon name="externalLink" size={14} /> Live Demo
               </a>
-              <a href={featured.githubUrl} target="_blank" className="border-2 border-[#E8E4DE] text-[#1A1A1A] text-base font-semibold px-8 py-4 rounded-xl hover:border-[#1A1A1A] transition-colors flex items-center gap-2">
-                <Icon name="github" size={17} /> GitHub
+              <a href={featured.githubUrl} target="_blank" className="border-2 border-[#E8E4DE] text-[#1A1A1A] text-sm font-semibold px-6 py-3 rounded-xl hover:border-[#1A1A1A] transition-colors flex items-center gap-2">
+                <Icon name="github" size={15} /> GitHub
               </a>
             </div>
           </div>
@@ -102,8 +102,8 @@ export default function Projects() {
                   </a>
                 </div>
               </div>
-              <h3 className="font-serif text-2xl tracking-tight mb-3">{p.name}</h3>
-              <p className="text-[#888] text-base leading-relaxed mb-6">{p.desc}</p>
+              <h3 className="font-serif text-xl tracking-tight mb-2">{p.name}</h3>
+              <p className="text-[#888] text-sm leading-relaxed mb-5">{p.desc}</p>
               <div className="flex flex-wrap gap-2">
                 {p.tags.map(t => (
                   <span key={t} className="bg-[#F0F0F0] text-[#4A4A4A] text-sm font-medium px-3.5 py-1.5 rounded-full">{t}</span>

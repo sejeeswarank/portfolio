@@ -35,32 +35,32 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <div className="max-w-4xl">
 
-          <h1 className="fade-up visible font-serif tracking-tight leading-[1.02] mb-5" style={{ fontSize: 'clamp(4rem, 10vw, 9rem)', transitionDelay: '0.2s' }}>
+          <h1 className="fade-up visible font-serif tracking-tight leading-[1.02] mb-5" style={{ fontSize: 'clamp(2.8rem, 7vw, 6rem)', transitionDelay: '0.2s' }}>
             Sejees<em className="text-[#1B4FD8] not-italic">waran</em> K
           </h1>
-          <p className="fade-up visible text-2xl text-[#4A4A4A] mb-6 tracking-tight" style={{ transitionDelay: '0.32s' }}>
+          <p className="fade-up visible text-lg text-[#4A4A4A] mb-6 tracking-tight" style={{ transitionDelay: '0.32s' }}>
             Blockchain Developer · Full-Stack Engineer · AI Builder
           </p>
-          <p className="fade-up visible text-xl text-[#888] leading-relaxed max-w-2xl mb-12" style={{ transitionDelay: '0.42s' }}>
+          <p className="fade-up visible text-base text-[#888] leading-relaxed max-w-2xl mb-12" style={{ transitionDelay: '0.42s' }}>
             Pre-Final year B.E. CSE (Blockchain Technology) student at Sathyabama Institute of Science and Technology.
             I build real world systems combining Blockchain, AIML, and Cloud Security, not just toy projects.
           </p>
-          <div className="fade-up visible flex gap-6 flex-wrap mb-20" style={{ transitionDelay: '0.52s' }}>
-            <a href="#projects" className="bg-[#1B4FD8] text-white px-10 py-5 rounded-xl font-semibold text-lg hover:bg-[#1440B8] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#1B4FD8]/25 flex items-center gap-2.5">
-              View My Work <Icon name="arrowUpRight" size={18} />
+          <div className="fade-up visible flex gap-4 flex-wrap mb-16" style={{ transitionDelay: '0.52s' }}>
+            <a href="#projects" className="bg-[#1B4FD8] text-white px-7 py-3.5 rounded-xl font-semibold text-base hover:bg-[#1440B8] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#1B4FD8]/25 flex items-center gap-2">
+              View My Work <Icon name="arrowUpRight" size={16} />
             </a>
-            <a href="mailto:sejeeswaran369@gmail.com" className="border-2 border-[#E8E4DE] text-[#1A1A1A] px-10 py-5 rounded-xl font-semibold text-lg hover:border-[#1A1A1A] transition-all duration-200 hover:-translate-y-0.5 flex items-center gap-2.5">
-              <Icon name="mail" size={19} /> Get in Touch
+            <a href="mailto:sejeeswaran369@gmail.com" className="border-2 border-[#E8E4DE] text-[#1A1A1A] px-7 py-3.5 rounded-xl font-semibold text-base hover:border-[#1A1A1A] transition-all duration-200 hover:-translate-y-0.5 flex items-center gap-2">
+              <Icon name="mail" size={16} /> Get in Touch
             </a>
-            <a href="/Sejeeswarank_Resume.pdf" download className="border-2 border-[#E8E4DE] text-[#1A1A1A] px-10 py-5 rounded-xl font-semibold text-lg hover:border-[#1A1A1A] transition-all duration-200 hover:-translate-y-0.5 flex items-center gap-2.5">
-              <Icon name="download" size={19} /> Resume
+            <a href="/Sejeeswarank_Resume.pdf" download className="border-2 border-[#E8E4DE] text-[#1A1A1A] px-7 py-3.5 rounded-xl font-semibold text-base hover:border-[#1A1A1A] transition-all duration-200 hover:-translate-y-0.5 flex items-center gap-2">
+              <Icon name="download" size={16} /> Resume
             </a>
           </div>
-          <div ref={statsRef} className="flex gap-16 pt-10 border-t-2 border-[#E8E4DE] fade-up visible" style={{ transitionDelay: '0.62s' }}>
+          <div ref={statsRef} className="flex gap-12 pt-8 border-t-2 border-[#E8E4DE] fade-up visible" style={{ transitionDelay: '0.62s' }}>
             {stats.map(s => (
               <div key={s.label}>
-                <div className="stat-num font-serif text-5xl tracking-tight text-[#1A1A1A] leading-none mb-2">{s.num}</div>
-                <div className="text-base text-[#888] tracking-wide">{s.label}</div>
+                <div className="stat-num font-serif text-4xl tracking-tight text-[#1A1A1A] leading-none mb-1.5">{s.num}</div>
+                <div className="text-sm text-[#888] tracking-wide">{s.label}</div>
               </div>
             ))}
           </div>
