@@ -33,7 +33,7 @@ export default function Contact() {
           ))}
         </AnimatedSection>
         <AnimatedSection delay={240}>
-          <p className="font-serif text-3xl md:text-4xl italic text-white/30 tracking-tight max-w-3xl mx-auto leading-relaxed">
+          <p className="font-serif text-3xl md:text-4xl italic text-white/50 tracking-tight max-w-3xl mx-auto leading-relaxed">
             &ldquo;I don&apos;t just learn technologies,<br />I build systems with them.&rdquo;
           </p>
         </AnimatedSection>
