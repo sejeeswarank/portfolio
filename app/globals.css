@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #FAF8F5;
+  color: #1A1A1A;
+  font-size: 18px;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes countPop {
+  0%   { opacity: 0; transform: scale(0.7) translateY(10px); }
+  70%  { transform: scale(1.06) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.stat-num {
+  opacity: 0;
+  animation: countPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.nav-scrolled {
+  background: rgba(250,248,245,0.92) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 #E8E4DE;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.7); }
+}
+.pulse-dot { animation: pulseDot 2s ease-in-out infinite; }
+
+.project-card .hover-bar {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.project-card:hover .hover-bar { transform: scaleX(1); }
+
+.skill-chip {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.skill-chip:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(27,79,216,0.12);
+  border-color: #1B4FD8;
+  color: #1B4FD8;
+}
+
+.cert-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+  border-color: #1B4FD8;
+}
+
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.45s cubic-bezier(0.22,1,0.36,1), transform 0.45s cubic-bezier(0.22,1,0.36,1);
+}
+.stagger-children.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:0.05s; }
+.stagger-children.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.12s; }
+.stagger-children.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.19s; }
+.stagger-children.visible > *:nth-child(n+4) { opacity:1; transform:none; transition-delay:0.26s; }
+
+/* For dark section or when parent is dark, use luminosity */
+.logo-img-dark {
+  mix-blend-mode: screen;
+}
