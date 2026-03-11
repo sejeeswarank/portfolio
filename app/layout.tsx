@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { Analytics } from "@vercel/analytics/next"
 import { DM_Sans, DM_Serif_Display } from 'next/font/google'
 import './globals.css'
 
@@ -21,6 +20,13 @@ export const metadata: Metadata = {
     description: 'Blockchain Developer · Full-Stack Engineer · AI Builder',
     type: 'website',
   },
+  icons: {
+    icon: [
+      { url: '/ksa.ico' },
+      { url: '/ksa-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/ksa-192.png',
+  },
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -28,7 +34,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className="scroll-smooth">
       <body className={`${dmSans.variable} ${dmSerif.variable} font-sans bg-cream text-ink antialiased`}>
         {children}
-        <Analytics />
       </body>
     </html>
   )

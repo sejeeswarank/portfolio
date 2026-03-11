@@ -11,7 +11,10 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'nav-scrolled' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-10 h-22 flex items-center justify-between" style={{height:'5.5rem'}}>
-        <a href="#hero" className="font-serif text-2xl tracking-tight">Sejees<span className="text-[#1B4FD8]">waran</span></a>
+        <a href="#hero" className="flex items-center gap-3">
+          <img src="/ksa-192.png" alt="KSA Logo" className="w-9 h-9 rounded-lg object-cover" />
+          <span className="font-serif text-2xl tracking-tight">Sejees<span className="text-[#1B4FD8]">waran</span></span>
+        </a>
         <ul className="hidden md:flex items-center gap-10 list-none">
           {['Projects','Skills','Certifications'].map(item => (
             <li key={item}>
