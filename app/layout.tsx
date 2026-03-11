@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Analytics } from "@vercel/analytics/next"
 import { DM_Sans, DM_Serif_Display } from 'next/font/google'
 import './globals.css'
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className="scroll-smooth">
       <body className={`${dmSans.variable} ${dmSerif.variable} font-sans bg-cream text-ink antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   )
