@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import Icon from './Icons'
 
 const GITHUB_USERNAME = 'sejeeswarank'
+const CACHE_KEY = 'gh_contributions'
 
 const staticStats = [
   { num: '6+', label: 'Projects Built' },
@@ -14,24 +15,26 @@ export default function Hero() {
   const statsRef = useRef<HTMLDivElement>(null)
   const [contributions, setContributions] = useState<string | null>(null)
 
-  // Fetch GitHub contributions via public contributions API
   useEffect(() => {
+    // Show cached value instantly — no waiting, no flash
+    const cached = localStorage.getItem(CACHE_KEY)
+    if (cached) setContributions(cached)
+
     async function fetchContributions() {
       try {
-        // GitHub doesn't expose total contributions in REST API directly.
-        // We use the events API to get a rough count, but the most reliable
-        // public approach is scraping the contributions SVG calendar.
-        // We'll use a public proxy: github-contributions-api
         const res = await fetch(
           `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`
         )
         if (!res.ok) throw new Error('failed')
         const data = await res.json()
         const total: number = data?.total?.lastYear ?? data?.total ?? 0
-        setContributions(total > 0 ? `${total}` : null)
+        if (total > 0) {
+          const val = `${total}`
+          setContributions(val)
+          localStorage.setItem(CACHE_KEY, val) // persist for next visit
+        }
       } catch {
-        // Silently fail — stat just won't show
-        setContributions(null)
+        // API failed — cached value already shown, nothing more to do
       }
     }
     fetchContributions()
@@ -93,18 +96,17 @@ export default function Hero() {
             </a>
           </div>
 
-          <div ref={statsRef} className="grid grid-cols-2 md:flex md:gap-12 gap-6 pt-6 md:pt-8 border-t-2 border-[#E8E4DE] fade-up visible" style={{ transitionDelay: '0.62s' }}>
+          <div ref={statsRef} className="flex flex-wrap gap-6 md:gap-12 pt-6 md:pt-8 border-t-2 border-[#E8E4DE] fade-up visible" style={{ transitionDelay: '0.62s' }}>
             {allStats.map(s => (
-              <div key={s.label}>
+              <div key={s.label} className="flex flex-col items-center text-center">
                 <div className="stat-num font-serif text-3xl md:text-4xl tracking-tight text-[#1A1A1A] leading-none mb-1.5">
                   {s.num}
                 </div>
                 <div className="text-xs md:text-sm text-[#888] tracking-wide">{s.label}</div>
               </div>
             ))}
-            {/* Skeleton placeholder while contributions loads */}
             {contributions === null && (
-              <div>
+              <div className="flex flex-col items-center text-center">
                 <div className="font-serif text-3xl md:text-4xl tracking-tight text-[#E8E4DE] leading-none mb-1.5 animate-pulse">—</div>
                 <div className="text-xs md:text-sm text-[#E8E4DE] tracking-wide animate-pulse">GitHub Contributions</div>
               </div>
