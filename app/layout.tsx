@@ -12,12 +12,12 @@ const dmSerif = DM_Serif_Display({
 
 export const metadata: Metadata = {
   title: 'Sejeeswaran K',
-  description: 'Pre-Final year B.E. CSE (Blockchain Technology) student. I build real world systems combining Blockchain, AI/ML, and Cloud Security. Open to SDE Internships.',
-  keywords: ['Blockchain Developer', 'AI Builder', 'Full Stack', 'SDE Intern', 'Solidity', 'Python', 'React'],
+  description: 'Pre-Final year B.E. CSE (Blockchain Technology) student. I build real world systems combining Blockchain, AI/ML, and Cloud Security.',
+  keywords: ['Blockchain Developer', 'AI/ML Builder', 'SDE', 'Solidity', 'Python', 'React'],
   authors: [{ name: 'Sejeeswaran K' }],
   openGraph: {
     title: 'Sejeeswaran K Portfolio',
-    description: 'Blockchain Developer · Full-Stack Engineer · AI Builder',
+    description: 'Software Development Engineer · Blockchain · AI Builder',
     type: 'website',
   },
   icons: {

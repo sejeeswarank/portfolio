@@ -39,7 +39,7 @@ export default function Hero() {
             Sejees<em className="text-[#1B4FD8] not-italic">waran</em> K
           </h1>
           <p className="fade-up visible text-lg text-[#4A4A4A] mb-6 tracking-tight" style={{ transitionDelay: '0.32s' }}>
-            Blockchain Developer · Full-Stack Engineer · AI Builder
+            Software Development Engineer · Blockchain · AI Builder
           </p>
           <p className="fade-up visible text-base text-[#888] leading-relaxed max-w-2xl mb-12" style={{ transitionDelay: '0.42s' }}>
             Pre-Final year B.E. CSE (Blockchain Technology) student at Sathyabama Institute of Science and Technology.
