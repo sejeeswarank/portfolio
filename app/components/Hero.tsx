@@ -1,16 +1,42 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Icon from './Icons'
 
-const stats = [
+const GITHUB_USERNAME = 'sejeeswarank'
+
+const staticStats = [
   { num: '6+', label: 'Projects Built' },
   { num: '25+', label: 'Technologies' },
-  { num: '318', label: 'Contributions' },
   { num: '7.9', label: 'CGPA' },
 ]
 
 export default function Hero() {
   const statsRef = useRef<HTMLDivElement>(null)
+  const [contributions, setContributions] = useState<string | null>(null)
+
+  // Fetch GitHub contributions via public contributions API
+  useEffect(() => {
+    async function fetchContributions() {
+      try {
+        // GitHub doesn't expose total contributions in REST API directly.
+        // We use the events API to get a rough count, but the most reliable
+        // public approach is scraping the contributions SVG calendar.
+        // We'll use a public proxy: github-contributions-api
+        const res = await fetch(
+          `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`
+        )
+        if (!res.ok) throw new Error('failed')
+        const data = await res.json()
+        const total: number = data?.total?.lastYear ?? data?.total ?? 0
+        setContributions(total > 0 ? `${total}` : null)
+      } catch {
+        // Silently fail — stat just won't show
+        setContributions(null)
+      }
+    }
+    fetchContributions()
+  }, [])
+
   useEffect(() => {
     const el = statsRef.current
     if (!el) return
@@ -24,7 +50,17 @@ export default function Hero() {
     }, { threshold: 0.3 })
     observer.observe(el)
     return () => observer.disconnect()
-  }, [])
+  }, [contributions]) // re-run when contributions loads so new stat also animates
+
+  // Build stats array — insert contributions dynamically if loaded
+  const allStats = contributions
+    ? [
+      staticStats[0],
+      staticStats[1],
+      { num: contributions, label: 'GitHub Contributions' },
+      staticStats[2],
+    ]
+    : staticStats
 
   return (
     <section id="hero" className="min-h-screen flex items-center pt-20 pb-12 px-5 md:px-10 relative overflow-hidden">
@@ -56,14 +92,25 @@ export default function Hero() {
               <Icon name="download" size={16} /> Resume
             </a>
           </div>
+
           <div ref={statsRef} className="grid grid-cols-2 md:flex md:gap-12 gap-6 pt-6 md:pt-8 border-t-2 border-[#E8E4DE] fade-up visible" style={{ transitionDelay: '0.62s' }}>
-            {stats.map(s => (
+            {allStats.map(s => (
               <div key={s.label}>
-                <div className="stat-num font-serif text-3xl md:text-4xl tracking-tight text-[#1A1A1A] leading-none mb-1.5">{s.num}</div>
+                <div className="stat-num font-serif text-3xl md:text-4xl tracking-tight text-[#1A1A1A] leading-none mb-1.5">
+                  {s.num}
+                </div>
                 <div className="text-xs md:text-sm text-[#888] tracking-wide">{s.label}</div>
               </div>
             ))}
+            {/* Skeleton placeholder while contributions loads */}
+            {contributions === null && (
+              <div>
+                <div className="font-serif text-3xl md:text-4xl tracking-tight text-[#E8E4DE] leading-none mb-1.5 animate-pulse">—</div>
+                <div className="text-xs md:text-sm text-[#E8E4DE] tracking-wide animate-pulse">GitHub Contributions</div>
+              </div>
+            )}
           </div>
+
         </div>
       </div>
     </section>
