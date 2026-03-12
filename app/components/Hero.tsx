@@ -23,11 +23,14 @@ export default function Hero() {
     async function fetchContributions() {
       try {
         const res = await fetch(
-          `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`
+          `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}`
         )
         if (!res.ok) throw new Error('failed')
         const data = await res.json()
-        const total: number = data?.total?.lastYear ?? data?.total ?? 0
+        // Sum all years for true all-time total
+        const total: number = typeof data?.total === 'object'
+          ? Object.values(data.total as Record<string, number>).reduce((a, b) => a + b, 0)
+          : data?.total ?? 0
         if (total > 0) {
           const val = `${total}`
           setContributions(val)
