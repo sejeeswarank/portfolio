@@ -1,14 +1,15 @@
 'use client'
-import { useEffect, useRef, ReactNode } from 'react'
+import { useEffect, useRef, ReactNode, CSSProperties } from 'react'
 
-interface Props {
+type Props = Readonly<{
   children: ReactNode
   className?: string
   delay?: number // ms
   as?: keyof JSX.IntrinsicElements
-}
+  style?: CSSProperties
+}>
 
-export default function AnimatedSection({ children, className = '', delay = 0, as: Tag = 'div' }: Props) {
+export default function AnimatedSection({ children, className = '', delay = 0, as: Tag = 'div', style }: Props) {
   const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function AnimatedSection({ children, className = '', delay = 0, a
 
   return (
     // @ts-expect-error dynamic tag
-    <Tag ref={ref} className={`fade-up ${className}`}>
+    <Tag ref={ref} className={`fade-up ${className}`} style={style}>
       {children}
     </Tag>
   )
