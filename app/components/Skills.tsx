@@ -26,7 +26,8 @@ export default function Skills() {
           </div>
           <div className="flex flex-wrap gap-4">
             {current.skills.map(skill => (
-              <div key={skill.name} className="skill-chip bg-white border border-[#E8E4DE] rounded-2xl px-5 py-3.5 text-base font-medium text-[#1A1A1A] cursor-default">
+              <div key={skill.name} className="skill-chip bg-white border border-[#E8E4DE] rounded-2xl px-5 py-3.5 text-base font-medium text-[#1A1A1A] cursor-default flex items-center gap-2.5">
+                {skill.logo && <img src={skill.logo} alt={skill.name} className="w-5 h-5 object-contain" />}
                 {skill.name}
               </div>
             ))}
