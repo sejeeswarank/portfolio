@@ -29,52 +29,52 @@ export default function Projects() {
         </AnimatedSection>
 
         {/* Featured */}
-        <AnimatedSection delay={100} className="rounded-3xl border border-[#1B4FD8]/15 bg-gradient-to-br from-[#EEF2FF] to-[#F8F9FF] p-12 md:p-16 grid md:grid-cols-2 gap-14 items-start mb-10">
+        <AnimatedSection delay={100} className="rounded-3xl border border-[#1B4FD8]/15 bg-gradient-to-br from-[#EEF2FF] to-[#F8F9FF] p-6 md:p-12 lg:p-16 grid md:grid-cols-2 gap-8 md:gap-14 items-start mb-10">
           <div className="flex flex-col justify-between h-full">
-            <div className="flex items-center gap-4 md:gap-5 mb-4 md:mb-5">
-              <ProjectLogo logo={featured.logo} name={featured.name} size={52} logoBg={featured.logoBg} />
+            <div className="flex items-center gap-3 md:gap-5 mb-4 md:mb-5">
+              <ProjectLogo logo={featured.logo} name={featured.name} size={48} logoBg={featured.logoBg} />
               <div>
-                <h3 className="font-serif text-xl md:text-2xl tracking-tight">{featured.name}</h3>
+                <h3 className="font-serif text-lg md:text-3xl tracking-tight">{featured.name}</h3>
                 {featured.status === 'ongoing' && (
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest uppercase text-amber-600 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full mt-2">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest uppercase text-amber-600 bg-amber-50 border border-amber-200 px-2 md:px-3 py-1 rounded-full mt-1.5 md:mt-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
                     {' '}In Progress
                   </span>
                 )}
               </div>
             </div>
-            <p className="text-base text-[#4A4A4A] leading-relaxed mb-7">{featured.desc}</p>
-            <div className="flex flex-wrap gap-3 mb-9">
+            <p className="text-sm md:text-base text-[#4A4A4A] leading-relaxed mb-5 md:mb-7">{featured.desc}</p>
+            <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-9">
               {featured.tags.map(t => (
-                <span key={t} className="bg-[#EEF2FF] text-[#1B4FD8] text-sm font-medium px-4 py-2 rounded-full">{t}</span>
+                <span key={t} className="bg-[#EEF2FF] text-[#1B4FD8] text-xs md:text-sm font-medium px-3 md:px-4 py-1.5 md:py-2 rounded-full">{t}</span>
               ))}
             </div>
-            <div className="flex gap-4">
-              <a href={featured.liveUrl!} target="_blank" className="bg-[#1B4FD8] text-white text-sm font-semibold px-6 py-3 rounded-xl hover:bg-[#1440B8] transition-colors flex items-center gap-2">
+            <div className="flex gap-3 md:gap-4">
+              <a href={featured.liveUrl!} target="_blank" className="bg-[#1B4FD8] text-white text-sm font-semibold px-5 md:px-6 py-2.5 md:py-3 rounded-xl hover:bg-[#1440B8] transition-colors flex items-center gap-2">
                 <Icon name="externalLink" size={14} /> Live Demo
               </a>
-              <a href={featured.githubUrl} target="_blank" className="border-2 border-[#E8E4DE] text-[#1A1A1A] text-sm font-semibold px-6 py-3 rounded-xl hover:border-[#1A1A1A] transition-colors flex items-center gap-2">
+              <a href={featured.githubUrl} target="_blank" className="border-2 border-[#E8E4DE] text-[#1A1A1A] text-sm font-semibold px-5 md:px-6 py-2.5 md:py-3 rounded-xl hover:border-[#1A1A1A] transition-colors flex items-center gap-2">
                 <Icon name="github" size={15} /> GitHub
               </a>
             </div>
           </div>
           {/* Pipeline */}
-          <div className="bg-white rounded-2xl border border-[#1B4FD8]/10 p-8 flex flex-col gap-5">
-            <div className="text-sm font-bold tracking-widest uppercase text-[#888] mb-2">How It Works</div>
+          <div className="bg-white rounded-2xl border border-[#1B4FD8]/10 p-4 md:p-8 flex flex-col gap-3 md:gap-5">
+            <div className="text-xs md:text-sm font-bold tracking-widest uppercase text-[#888] mb-1 md:mb-2">How It Works</div>
             {featured.pipeline?.map((step, i) => (
               <div key={step.label}>
-                <div className="flex items-center gap-4 bg-[#FAF8F5] rounded-xl px-5 py-4 border border-[#E8E4DE]">
-                  <div className="w-12 h-12 bg-[#EEF2FF] rounded-xl flex items-center justify-center text-[#1B4FD8] shrink-0">
-                    <Icon name={step.icon} size={22} />
+                <div className="flex items-center gap-3 md:gap-4 bg-[#FAF8F5] rounded-xl px-3 md:px-5 py-2.5 md:py-4 border border-[#E8E4DE]">
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-[#EEF2FF] rounded-lg md:rounded-xl flex items-center justify-center text-[#1B4FD8] shrink-0">
+                    <Icon name={step.icon} size={15} />
                   </div>
                   <div>
-                    <div className="text-base font-semibold text-[#1A1A1A]">{step.label}</div>
-                    <div className="text-sm text-[#888] mt-0.5">{step.sub}</div>
+                    <div className="text-xs md:text-base font-semibold text-[#1A1A1A] leading-snug">{step.label}</div>
+                    <div className="text-xs md:text-sm text-[#888] mt-0.5 leading-snug">{step.sub}</div>
                   </div>
                 </div>
                 {i < (featured.pipeline?.length ?? 0) - 1 && (
-                  <div className="flex justify-center my-2">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B4FD8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <div className="flex justify-center my-1 md:my-2">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B4FD8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" />
                     </svg>
                   </div>

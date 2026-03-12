@@ -8,7 +8,6 @@ export default function Skills() {
   const [active, setActive] = useState('languages')
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const current = skillCategories.find(c => c.id === active)!
-  const activeLabel = current.label
 
   return (
     <section id="skills" className="py-12 md:py-16 px-5 md:px-10 bg-[#FAF8F5]">
@@ -21,35 +20,41 @@ export default function Skills() {
 
         <AnimatedSection delay={100} className="flex flex-col md:grid md:grid-cols-[280px_1fr] gap-5 md:gap-12 items-start">
 
-          {/* MOBILE: Dropdown selector */}
-          <div className="md:hidden relative w-full">
+          {/* ── MOBILE ONLY: inline accordion (never absolute, never overflows) ── */}
+          <div className="md:hidden w-full">
+            {/* Trigger button */}
             <button
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="w-full flex items-center justify-between px-4 py-3 bg-white border border-[#E8E4DE] rounded-2xl text-sm font-medium text-[#1A1A1A]"
+              onClick={() => setDropdownOpen(o => !o)}
+              className="w-full flex items-center justify-between px-4 py-3 bg-white border border-[#E8E4DE] rounded-2xl text-sm font-medium"
             >
               <span className="flex items-center gap-2 text-[#1B4FD8] font-semibold">
-                <Icon name={skillCategories.find(c => c.id === active)!.icon} size={16} />
-                {activeLabel}
+                <Icon name={current.icon} size={16} />
+                {current.label}
               </span>
-              <svg className={`w-4 h-4 text-[#888] transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className={`w-4 h-4 text-[#888] transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
+                fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
+
+            {/* Options — inline, pushes chips down, no overflow */}
             {dropdownOpen && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-[#E8E4DE] rounded-2xl shadow-lg z-20 overflow-hidden">
+              <div className="mt-1 bg-white border border-[#E8E4DE] rounded-2xl overflow-hidden">
                 {skillCategories.map(cat => (
                   <button key={cat.id}
                     onClick={() => { setActive(cat.id); setDropdownOpen(false) }}
-                    className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-left transition-colors border-b border-[#F0EDE8] last:border-0
+                    className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-left border-b border-[#F0EDE8] last:border-0 transition-colors
                       ${active === cat.id ? 'bg-[#EEF2FF] text-[#1B4FD8]' : 'text-[#4A4A4A] hover:bg-[#FAF8F5]'}`}>
-                    <Icon name={cat.icon} size={16} /> {cat.label}
+                    <Icon name={cat.icon} size={16} />
+                    {cat.label}
                   </button>
                 ))}
               </div>
             )}
           </div>
 
-          {/* DESKTOP: Vertical sidebar buttons — unchanged */}
+          {/* ── DESKTOP ONLY: vertical sidebar — exactly as original ── */}
           <div className="hidden md:flex flex-col gap-3">
             {skillCategories.map(cat => (
               <button key={cat.id} onClick={() => setActive(cat.id)}
@@ -59,7 +64,7 @@ export default function Skills() {
             ))}
           </div>
 
-          {/* Skill chips — 3-col grid on mobile, flex wrap on desktop */}
+          {/* ── Skill chips: 3-col on mobile, flex-wrap on desktop ── */}
           <div className="grid grid-cols-3 md:flex md:flex-wrap gap-2 md:gap-4">
             {current.skills.map(skill => (
               <div key={skill.name}
