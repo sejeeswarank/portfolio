@@ -8,7 +8,7 @@ const CACHE_KEY = 'gh_contributions'
 const staticStats = [
   { num: '6+', label: 'Projects Built' },
   { num: '25+', label: 'Technologies' },
-  { num: '7.9', label: 'CGPA' },
+  { num: '7.79', label: 'CGPA' },
 ]
 
 export default function Hero() {
