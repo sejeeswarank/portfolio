@@ -49,11 +49,19 @@ export default function Projects() {
                 <span key={t} className="bg-[#EEF2FF] text-[#1B4FD8] text-xs md:text-sm font-medium px-3 md:px-4 py-1.5 md:py-2 rounded-full">{t}</span>
               ))}
             </div>
-            <div className="flex gap-3 md:gap-4">
-              <a href={featured.liveUrl!} target="_blank" className="bg-[#1B4FD8] text-white text-sm font-semibold px-5 md:px-6 py-2.5 md:py-3 rounded-xl hover:bg-[#1440B8] transition-colors flex items-center gap-2">
-                <Icon name="externalLink" size={14} /> Live Demo
-              </a>
-              <a href={featured.githubUrl} target="_blank" className="border-2 border-[#E8E4DE] text-[#1A1A1A] text-sm font-semibold px-5 md:px-6 py-2.5 md:py-3 rounded-xl hover:border-[#1A1A1A] transition-colors flex items-center gap-2">
+            <div className="flex gap-3 md:gap-4 flex-wrap">
+              {featured.liveUrl && (
+                <a href={featured.liveUrl} target="_blank" rel="noopener noreferrer" className="bg-[#1B4FD8] text-white text-sm font-semibold px-5 md:px-6 py-2.5 md:py-3 rounded-xl hover:bg-[#1440B8] transition-colors flex items-center gap-2">
+                  <Icon name="externalLink" size={14} /> Live Demo
+                </a>
+              )}
+              
+              {'downloadUrl' in featured && (featured as any).downloadUrl && (
+                <a href={(featured as any).downloadUrl} target="_blank" rel="noopener noreferrer" className="border-2 border-[#E8E4DE] text-[#1A1A1A] text-sm font-semibold px-5 md:px-6 py-2.5 md:py-3 rounded-xl hover:border-[#1A1A1A] transition-colors flex items-center gap-2">
+                  <Icon name="download" size={15} /> Download
+                </a>
+              )}
+              <a href={featured.githubUrl} target="_blank" rel="noopener noreferrer" className="border-2 border-[#E8E4DE] text-[#1A1A1A] text-sm font-semibold px-5 md:px-6 py-2.5 md:py-3 rounded-xl hover:border-[#1A1A1A] transition-colors flex items-center gap-2">
                 <Icon name="github" size={15} /> GitHub
               </a>
             </div>
@@ -93,11 +101,16 @@ export default function Projects() {
                 <ProjectLogo logo={p.logo} name={p.name} size={60} logoBg={p.logoBg} />
                 <div className="flex gap-2.5">
                   {p.liveUrl && (
-                    <a href={p.liveUrl} target="_blank" className="w-10 h-10 border border-[#E8E4DE] bg-white rounded-xl flex items-center justify-center text-[#888] hover:border-[#1B4FD8] hover:text-[#1B4FD8] transition-all duration-200">
+                    <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" title="Live Demo" className="w-10 h-10 border border-[#E8E4DE] bg-white rounded-xl flex items-center justify-center text-[#888] hover:border-[#1B4FD8] hover:text-[#1B4FD8] transition-all duration-200">
                       <Icon name="externalLink" size={16} />
                     </a>
                   )}
-                  <a href={p.githubUrl} target="_blank" className="w-10 h-10 border border-[#E8E4DE] bg-white rounded-xl flex items-center justify-center text-[#888] hover:border-[#1B4FD8] hover:text-[#1B4FD8] transition-all duration-200">
+                  {'downloadUrl' in p && p.downloadUrl && (
+                    <a href={p.downloadUrl} target="_blank" rel="noopener noreferrer" title="Download" className="w-10 h-10 border border-[#E8E4DE] bg-white rounded-xl flex items-center justify-center text-[#888] hover:border-[#1B4FD8] hover:text-[#1B4FD8] transition-all duration-200">
+                      <Icon name="download" size={17} />
+                    </a>
+                  )}
+                  <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" title="GitHub Repository" className="w-10 h-10 border border-[#E8E4DE] bg-white rounded-xl flex items-center justify-center text-[#888] hover:border-[#1B4FD8] hover:text-[#1B4FD8] transition-all duration-200">
                     <Icon name="github" size={17} />
                   </a>
                 </div>
