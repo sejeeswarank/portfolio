@@ -6,7 +6,7 @@ const GITHUB_USERNAME = 'sejeeswarank'
 const CACHE_KEY = 'gh_contributions'
 
 const staticStats = [
-  { num: '6+', label: 'Projects Built' },
+  { num: '8+', label: 'Projects Built' },
   { num: '25+', label: 'Technologies' },
   { num: '7.82', label: 'CGPA' },
 ]

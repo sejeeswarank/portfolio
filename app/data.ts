@@ -73,6 +73,27 @@ export const projects = [
     liveUrl: 'https://sisteventcalendar.vercel.app',
     githubUrl: 'https://github.com/sejeeswarank/sisteventcalendar',
   },
+  {
+    id: 'catalyst', logoBg: '#101010',
+    name: 'CATalyst',
+    logo: '/logos/catalyst.svg',
+    featured: false,
+    tagline: 'Heavy Equipment Fleet Management Platform',
+    desc: 'CAT-branded fleet operations dashboard backed by live Supabase data. Two-step booking to RFID gate-scan rental workflow, rule-based alert engine, and a scikit-learn powered 7-day demand forecast.',
+    tags: ['React', 'Vite', 'Flask', 'Supabase', 'scikit-learn', 'TailwindCSS'],
+    githubUrl: 'https://github.com/sejeeswarank/CATalyst',
+  },
+  {
+    id: 'geofence',
+    name: 'GeoFence Vision',
+    logo: '/logos/geofence.png',
+    featured: false,
+    tagline: 'AI Camera-Based Geo-Fencing Security',
+    desc: 'FastAPI + OpenCV + YOLOv8 camera security app. Real-time detection to tracking to geo-fence check pipeline, Firebase auth, multi-camera dashboard, and per-user Google Drive snapshot persistence.',
+    tags: ['FastAPI', 'OpenCV', 'YOLOv8', 'Firebase', 'Google Drive API'],
+    liveUrl: 'https://geofence-ai.onrender.com/app',
+    githubUrl: 'https://github.com/sejeeswarank/GeoFence',
+  },
 ]
 
 export const skillCategories = [
