@@ -22,10 +22,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/ksa.ico' },
-      { url: '/ksa-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/logos/kctracker.png', type: 'image/png' },
     ],
-    apple: '/ksa-192.png',
+    apple: '/logos/kctracker.png',
   },
 }
 

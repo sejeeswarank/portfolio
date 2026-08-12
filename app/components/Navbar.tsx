@@ -17,7 +17,7 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'nav-scrolled' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-5 md:px-10 h-16 md:h-22 flex items-center justify-between" style={{ height: '4rem' }}>
         <a href="#hero" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
-          <img src="/ksa-192.png" alt="KSA Logo" className="w-8 h-8 md:w-9 md:h-9 rounded-lg object-cover" />
+          <img src="/logos/kctracker.png" alt="KCTracker Logo" className="w-8 h-8 md:w-9 md:h-9 rounded-lg object-cover" />
           <span className="font-serif text-xl md:text-2xl tracking-tight">Sejees<span className="text-[#1B4FD8]">waran </span>K</span>
         </a>
 
