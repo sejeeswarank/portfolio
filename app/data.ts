@@ -26,7 +26,7 @@ export const projects = [
     tagline: 'Bank Statement Ledger System',
     desc: 'Auto-detects the Indian bank and converts raw PDF, CSV, and Excel transaction data into structured financial ledgers through a 10-phase normalization pipeline. Fernet-encrypted passwords, and works fully offline.',
     tags: ['Python', 'Flask', 'SQLite', 'pandas', 'pdfplumber', 'Fernet', 'Chart.js'],
-    downloadUrl: 'https://github.com/sejeeswarank/KCTracker/releases/download/v1.1.1/KCTracker.Setup.exe',
+    downloadUrl: 'https://github.com/sejeeswarank/KCTracker/releases/download/v2.0.0/KCTracker.Setup.exe',
     githubUrl: 'https://github.com/sejeeswarank/KCTracker',
   },
   {
